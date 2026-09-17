@@ -3,93 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASF Ranking — Ecossistema ASF</title>
-<meta name="description" content="Ranking gamificado da comunidade ASF — XP integrado entre Quiz, Diário e app principal.">
-<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-ranking/">
+<title>ASF Ranking — ASF</title>
+<meta name="description" content="Ranking gamificado da comunidade com XP integrado aos apps ASF">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#f0f9ff;color:#0c4a6e;line-height:1.6}
-header{background:linear-gradient(135deg,#0ea5e9,#6366f1);color:#fff;padding:1rem 0}
-nav{max-width:1150px;margin:0 auto;display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem}
-nav a{color:#e0f2fe;text-decoration:none;font-size:.8rem;padding:.3rem .6rem;border-radius:999px;background:rgba(255,255,255,.12)}
-nav a:hover{background:rgba(255,255,255,.3)}
-nav a.active{background:#fff;color:#0369a1;font-weight:700}
-.hero{text-align:center;padding:3rem 1rem 2rem}
-.hero .em{font-size:3.5rem}
-.hero h1{font-size:2.2rem;margin:.5rem 0}
-.hero p{max-width:640px;margin:0 auto;color:#155e75}
-section{max-width:900px;margin:0 auto;padding:1.5rem 1rem}
-.box{background:#fff;border-radius:1rem;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(2,132,199,.08)}
-.box h2{color:#0369a1;margin-bottom:.5rem}
-.grid{max-width:1150px;margin:0 auto;padding:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
-.card{background:#fff;border-radius:1rem;padding:1.2rem;text-decoration:none;color:#0c4a6e;box-shadow:0 2px 8px rgba(2,132,199,.08);transition:transform .15s}
-.card:hover{transform:translateY(-4px)}
-.card .ce{font-size:1.6rem}
-.card h3{margin:.3rem 0;color:#0369a1;font-size:1rem}
-.card p{font-size:.8rem;color:#64748b}
-footer{text-align:center;padding:2rem 1rem;color:#64748b;font-size:.85rem}
-footer a{color:#0284c7}
+:root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+header h1{font-size:2rem} header p{opacity:.9;margin-top:.4rem}
+nav{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.8rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.3rem .7rem;border-radius:20px;font-size:.78rem;text-decoration:none}
+nav a:hover{background:var(--rosa);color:#fff}
+main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
+.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
+button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+button:hover{opacity:.85}
+input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
+.xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 </style>
 </head>
 <body>
-<header><nav>
-      <a href="https://acarolmourad-commits.github.io/asf-app/">🌊 ASF App</a>
-      <a href="https://acarolmourad-commits.github.io/asf-praias/">🏖️ ASF Praias</a>
-      <a href="https://acarolmourad-commits.github.io/asf-previsao/">📈 ASF Previsão</a>
-      <a href="https://acarolmourad-commits.github.io/asf-treino/">🏄‍♀️ ASF Treino</a>
-      <a href="https://acarolmourad-commits.github.io/asf-eventos/">📅 ASF Eventos</a>
-      <a href="https://acarolmourad-commits.github.io/asf-glossario/">📖 ASF Glossário</a>
-      <a href="https://acarolmourad-commits.github.io/asf-comunidade/">💜 ASF Comunidade</a>
-      <a href="https://acarolmourad-commits.github.io/asf-seguranca/">🛟 ASF Segurança</a>
-      <a href="https://acarolmourad-commits.github.io/asf-equipamento/">🏄 ASF Equipamento</a>
-      <a href="https://acarolmourad-commits.github.io/asf-quiz/">🎯 ASF Quiz</a>
-      <a href="https://acarolmourad-commits.github.io/asf-nutricao/">🥗 ASF Nutrição</a>
-      <a href="https://acarolmourad-commits.github.io/asf-viagens/">✈️ ASF Viagens</a>
-      <a href="https://acarolmourad-commits.github.io/asf-historia/">🏆 ASF História</a>
-      <a href="https://acarolmourad-commits.github.io/asf-bemestar/">🧘‍♀️ ASF Bem-estar</a>
-      <a href="https://acarolmourad-commits.github.io/asf-ranking/" class="active">🥇 ASF Ranking</a>
-      <a href="https://acarolmourad-commits.github.io/asf-diario/">📓 ASF Diário</a>
-</nav></header>
-<div class="hero"><div class="em">🥇</div><h1>ASF Ranking</h1><p>O ranking vivo da comunidade ASF: cada quiz, sessão e meta conta pontos. Suba de Gotinha a Lenda do Pico!</p></div>
-<section>
-<div class="box"><h2>🥇 Ranking da comunidade ASF</h2><p>O primeiro ranking <strong>cross-app</strong> do surf feminino: seu XP do <a href="https://acarolmourad-commits.github.io/asf-quiz/">ASF Quiz</a>, sessões registradas no <a href="https://acarolmourad-commits.github.io/asf-diario/">ASF Diário</a> e metas do app principal somam pontos automaticamente. Tudo roda no seu navegador — privado, sem cadastro.</p></div>
-<div class="box"><h2>📊 Sua posição</h2><div id="minha-posicao"></div></div>
-<div class="box"><h2>🏅 Como ganhar XP</h2>
-<p>🎯 Quiz diário: +10 XP por acerto · 📓 Sessão registrada no Diário: +20 XP · 🔥 Streak de 7 dias: bônus de 50 XP · 🏄‍♀️ Meta concluída no <a href="https://acarolmourad-commits.github.io/asf-app/">ASF App</a>: +30 XP</p></div>
-<div class="box"><h2>🌊 Níveis</h2><p><strong>Gotinha</strong> (0+) → <strong>Maria</strong> (100+) → <strong>Onda</strong> (250+) → <strong>Pipeline</strong> (500+) → <strong>Lenda do Pico</strong> (1000+)</p></div>
-</section>
+<header><h1>🏆 ASF Ranking</h1><p>Ranking gamificado da comunidade com XP integrado aos apps ASF</p></header>
+<nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-praias/">Praias</a>
+<a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsao</a>
+<a href="https://acarolmourad-commits.github.io/asf-treino/">Treino</a>
+<a href="https://acarolmourad-commits.github.io/asf-eventos/">Eventos</a>
+<a href="https://acarolmourad-commits.github.io/asf-glossario/">Glossario</a>
+<a href="https://acarolmourad-commits.github.io/asf-seguranca/">Seguranca</a>
+<a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a>
+<a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a>
+<a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a>
+<a href="https://acarolmourad-commits.github.io/asf-nutricao/">Nutricao</a>
+<a href="https://acarolmourad-commits.github.io/asf-historia/">Historia</a>
+<a href="https://acarolmourad-commits.github.io/asf-viagens/">Viagens</a>
+<a href="https://acarolmourad-commits.github.io/asf-bemestar/">Bemestar</a>
+<a href="https://acarolmourad-commits.github.io/asf-diario/">Diario</a>
+<a href="https://acarolmourad-commits.github.io/asf-eco/">Eco</a>
+<a href="https://acarolmourad-commits.github.io/asf-kids/">Kids</a>
+<a href="https://acarolmourad-commits.github.io/asf-mental/">Mental</a>
+<a href="https://acarolmourad-commits.github.io/asf-respira/">Respira</a>
+<a href="https://acarolmourad-commits.github.io/asf-sos/">Sos</a>
+<a href="https://acarolmourad-commits.github.io/asf-volume/">Volume</a>
+<a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a></nav>
+<main>
+<div class="card"><h2>⭐ Seu XP no Ecossistema ASF</h2>
+<h1 id="my" style="text-align:center;font-size:3rem;color:var(--roxo)">0</h1>
+<p style="text-align:center" id="lvl"></p>
+<p style="text-align:center">Ganhe XP usando os satélites ASF: Quiz, Diário, Yoga, Respira, Eco, Comunidade e mais!</p></div>
+<div class="card"><h2>🎯 Níveis ASF</h2><table style="width:100%"><tr><td>🏖️ Beira-mar</td><td>0 XP</td></tr><tr><td>🌊 Espuma</td><td>50 XP</td></tr><tr><td>🏄‍♀️ Dropando</td><td>150 XP</td></tr><tr><td>⚡ Manobrando</td><td>300 XP</td></tr><tr><td>👑 Rainha do Pico</td><td>600 XP</td></tr></table></div>
+<div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>. App principal: <a href="https://acarolmourad-commits.github.io/asf-app/">ASF App</a>.</p></div>
+</main>
+<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/asf-app/">asf-app</a></footer>
 <script>
-(function(){
-var xp=parseInt(localStorage.getItem('asf-xp')||'0',10);
-var quizXp=parseInt(localStorage.getItem('asf-quiz-xp')||'0',10);
-var sessoes=0;try{sessoes=JSON.parse(localStorage.getItem('asf-diario-sessoes')||'[]').length}catch(e){}
-var streak=parseInt(localStorage.getItem('asf-quiz-streak')||'0',10);
-var total=xp+quizXp+sessoes*20+(streak>=7?50:0);
-var nivel=total>=1000?'🌟 Lenda do Pico':total>=500?'🌊 Pipeline':total>=250?'🌊 Onda':total>=100?'💧 Maria':'💦 Gotinha';
-document.getElementById('minha-posicao').innerHTML='<p style="font-size:2rem;text-align:center;margin:.5rem 0"><strong>'+total+' XP</strong></p><p style="text-align:center;font-size:1.2rem">'+nivel+'</p><p style="text-align:center;color:#64748b;font-size:.85rem;margin-top:.5rem">Quiz: '+quizXp+' XP · Sessões: '+sessoes+' ('+(sessoes*20)+' XP) · Streak: '+streak+' dias</p><p style="text-align:center;margin-top:1rem"><a href="https://acarolmourad-commits.github.io/asf-quiz/" style="background:#0ea5e9;color:#fff;padding:.6rem 1.2rem;border-radius:999px;text-decoration:none">Ganhar XP agora 🎯</a></p>';
-})();
+const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
+function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
+document.getElementById('xp').textContent=XP();
+const x=XP();document.getElementById('my').textContent=x;const L=[[600,'👑 Rainha do Pico'],[300,'⚡ Manobrando'],[150,'🏄‍♀️ Dropando'],[50,'🌊 Espuma'],[0,'🏖️ Beira-mar']];document.getElementById('lvl').textContent='Nível atual: '+L.find(l=>x>=l[0])[1];
 </script>
-<section class="box" style="text-align:center;background:linear-gradient(135deg,#e0f2fe,#ede9fe);max-width:900px;margin:0 auto 1rem">
-<h2>🌐 Explore o ecossistema ASF</h2>
-<p>Este site faz parte da rede de apps da <strong>ASF — Associação de Surf Feminino</strong>. Navegue entre os apps satélites:</p>
-</section>
-<div class="grid">
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-app/"><span class="ce">🌊</span><h3>ASF App</h3><p>App principal</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-praias/"><span class="ce">🏖️</span><h3>ASF Praias</h3><p>Guia de praias</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-previsao/"><span class="ce">📈</span><h3>ASF Previsão</h3><p>Ondas, vento e maré</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-treino/"><span class="ce">🏄‍♀️</span><h3>ASF Treino</h3><p>Treinos e progressão</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-eventos/"><span class="ce">📅</span><h3>ASF Eventos</h3><p>Calendário de competições</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-glossario/"><span class="ce">📖</span><h3>ASF Glossário</h3><p>Termos do surf</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-comunidade/"><span class="ce">💜</span><h3>ASF Comunidade</h3><p>Histórias e mentorias</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-seguranca/"><span class="ce">🛟</span><h3>ASF Segurança</h3><p>Segurança no mar</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-equipamento/"><span class="ce">🏄</span><h3>ASF Equipamento</h3><p>Pranchas e wetsuits</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-quiz/"><span class="ce">🎯</span><h3>ASF Quiz</h3><p>Quiz diário de surf</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-nutricao/"><span class="ce">🥗</span><h3>ASF Nutrição</h3><p>Alimentação e hidratação</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-viagens/"><span class="ce">✈️</span><h3>ASF Viagens</h3><p>Surf trips e roteiros</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-historia/"><span class="ce">🏆</span><h3>ASF História</h3><p>História do surf feminino</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-bemestar/"><span class="ce">🧘‍♀️</span><h3>ASF Bem-estar</h3><p>Saúde e yoga</p></a>
-      <a class="card" href="https://acarolmourad-commits.github.io/asf-diario/"><span class="ce">📓</span><h3>ASF Diário</h3><p>Diário de sessões</p></a>
-</div>
-<footer>Feito com 💜 pela ASF · <a href="https://acarolmourad-commits.github.io/asf-app/">App principal</a> · <a href="https://github.com/acarolmourad-commits/asf-ranking">Código no GitHub</a></footer>
 </body>
 </html>
