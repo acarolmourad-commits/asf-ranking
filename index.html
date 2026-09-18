@@ -21,6 +21,11 @@ button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;bord
 button:hover{opacity:.85}
 input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
 .xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+table{width:100%;border-collapse:collapse}
+table td{padding:.45rem .3rem;border-bottom:1px solid #ffe3f1;font-size:.95rem}
+table tr:last-child td{border-bottom:none}
+.bar{background:#ffe3f1;border-radius:12px;height:14px;overflow:hidden;margin:.6rem 0 .3rem}
+.bar>div{background:linear-gradient(90deg,var(--rosa),var(--roxo));height:100%;width:0;transition:width .6s}
 footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 </style>
 </head>
@@ -55,8 +60,30 @@ footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
 <div class="card"><h2>⭐ Seu XP no Ecossistema ASF</h2>
 <h1 id="my" style="text-align:center;font-size:3rem;color:var(--roxo)">0</h1>
 <p style="text-align:center" id="lvl"></p>
-<p style="text-align:center">Ganhe XP usando os satélites ASF: Quiz, Diário, Yoga, Respira, Eco, Comunidade e mais!</p></div>
-<div class="card"><h2>🎯 Níveis ASF</h2><table style="width:100%"><tr><td>🏖️ Beira-mar</td><td>0 XP</td></tr><tr><td>🌊 Espuma</td><td>50 XP</td></tr><tr><td>🏄‍♀️ Dropando</td><td>150 XP</td></tr><tr><td>⚡ Manobrando</td><td>300 XP</td></tr><tr><td>👑 Rainha do Pico</td><td>600 XP</td></tr></table></div>
+<div class="bar"><div id="prog"></div></div>
+<p style="text-align:center;font-size:.85rem;color:#888" id="next"></p></div>
+<div class="card"><h2>❓ Como funciona o Ranking</h2>
+<p>O ASF Ranking é a <b>pontuação unificada</b> da constelação ASF. Funciona assim:</p>
+<p><b>1. Um único XP para tudo:</b> cada satélite (Quiz, Diário, Yoga, Maré, Eco…) soma pontos na <b>mesma conta de XP</b>, salva no seu navegador (localStorage). Não precisa de cadastro nem login.</p>
+<p><b>2. Cada visita e cada ação contam:</b> abrir um app, completar um quiz, registrar um treino no Diário — tudo rende pontos automaticamente.</p>
+<p><b>3. Suba de nível:</b> ao acumular XP você avança de 🏖️ Beira-mar até 👑 Rainha do Pico. A barra acima mostra quanto falta para o próximo nível.</p>
+<p><b>⚠️ Importante:</b> o XP fica neste dispositivo/navegador. Limpar os dados do site ou trocar de aparelho zera a contagem.</p></div>
+<div class="card"><h2>🎯 Onde ganhar XP</h2>
+<table>
+<tr><td>🧠 <a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a></td><td>Acerte as perguntas do dia sobre surf</td></tr>
+<tr><td>📓 <a href="https://acarolmourad-commits.github.io/asf-diario/">Diário</a></td><td>Registre sessões, ondas e aprendizados</td></tr>
+<tr><td>🧘 <a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a> e <a href="https://acarolmourad-commits.github.io/asf-respira/">Respira</a></td><td>Complete práticas de mobilidade e respiração</td></tr>
+<tr><td>🌱 <a href="https://acarolmourad-commits.github.io/asf-eco/">Eco</a></td><td>Ações de cuidado com a praia e o oceano</td></tr>
+<tr><td>💬 <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a></td><td>Participe e conecte-se com outras surfistas</td></tr>
+<tr><td>🌙 <a href="https://acarolmourad-commits.github.io/asf-mare/">Maré</a>, <a href="https://acarolmourad-commits.github.io/asf-mapa/">Mapa</a> e demais satélites</td><td>Explore os apps — cada visita já rende XP</td></tr>
+</table></div>
+<div class="card"><h2>🎯 Níveis ASF</h2><table>
+<tr><td>🏖️ Beira-mar</td><td>0 XP</td><td>Começando a jornada</td></tr>
+<tr><td>🌊 Espuma</td><td>50 XP</td><td>Primeiras descobertas</td></tr>
+<tr><td>🏄‍♀️ Dropando</td><td>150 XP</td><td>Uso constante dos apps</td></tr>
+<tr><td>⚡ Manobrando</td><td>300 XP</td><td>Surfista dedicada da comunidade</td></tr>
+<tr><td>👑 Rainha do Pico</td><td>600 XP</td><td>Nível máximo — referência ASF!</td></tr>
+</table></div>
 <div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>. App principal: <a href="https://acarolmourad-commits.github.io/asf-app/">ASF App</a>.</p></div>
 </main>
 <div class="xp">⭐ XP: <span id="xp">0</span></div>
@@ -66,6 +93,9 @@ const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
 function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
 document.getElementById('xp').textContent=XP();
 const x=XP();document.getElementById('my').textContent=x;const L=[[600,'👑 Rainha do Pico'],[300,'⚡ Manobrando'],[150,'🏄‍♀️ Dropando'],[50,'🌊 Espuma'],[0,'🏖️ Beira-mar']];document.getElementById('lvl').textContent='Nível atual: '+L.find(l=>x>=l[0])[1];
+const next=L.slice().reverse().find(l=>x<l[0]);
+if(next){const prev=L.find(l=>x>=l[0])[0];document.getElementById('prog').style.width=Math.round((x-prev)/(next[0]-prev)*100)+'%';document.getElementById('next').textContent='Faltam '+(next[0]-x)+' XP para '+next[1];}
+else{document.getElementById('prog').style.width='100%';document.getElementById('next').textContent='Nível máximo alcançado! 👑';}
 </script>
 </body>
 </html>
