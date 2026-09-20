@@ -1,1 +1,170 @@
-RANKING_CONTENT_PLACEHOLDER
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASF Ranking — ASF</title>
+<meta name="description" content="Ranking gamificado da comunidade com XP integrado aos apps ASF">
+<style>
+:root{--rosa:#ff4d8d;--roxo:#7b2ff7;--areia:#fff5ec;--mar:#00c2cb}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif}
+body{background:linear-gradient(160deg,#fff5ec,#ffe3f1 60%,#e0f7fa);min-height:100vh;color:#333}
+header{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;padding:2rem 1rem;text-align:center}
+header h1{font-size:2rem} header p{opacity:.9;margin-top:.4rem}
+nav{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;padding:.8rem;background:#fff;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+nav a{background:var(--areia);border:1px solid #ffd3e6;color:#c2185b;padding:.3rem .7rem;border-radius:20px;font-size:.78rem;text-decoration:none}
+nav a:hover{background:var(--rosa);color:#fff}
+main{max-width:760px;margin:1.5rem auto;padding:0 1rem}
+.card{background:#fff;border-radius:16px;padding:1.4rem;box-shadow:0 4px 16px #7b2ff720;margin-bottom:1.2rem}
+.card h2{color:var(--roxo);margin-bottom:.6rem;font-size:1.2rem}
+button{background:linear-gradient(90deg,var(--rosa),var(--roxo));color:#fff;border:none;padding:.6rem 1.2rem;border-radius:24px;font-size:1rem;cursor:pointer}
+button:hover{opacity:.85}
+input,select,textarea{padding:.5rem;border:1px solid #ddd;border-radius:10px;width:100%;margin:.3rem 0;font-size:1rem}
+.xp{position:fixed;bottom:1rem;right:1rem;background:#fff;border:2px solid var(--rosa);border-radius:24px;padding:.4rem 1rem;font-weight:bold;color:var(--roxo);box-shadow:0 4px 12px #0002}
+footer{text-align:center;padding:2rem;font-size:.8rem;color:#888}
+</style>
+<style>.faq details{background:#fff;border-radius:14px;padding:14px 18px;margin:10px auto;max-width:860px;box-shadow:0 2px 10px rgba(14,36,57,.06);text-align:left}.faq summary{font-weight:700;cursor:pointer;font-size:14.5px}.faq p{font-size:14px;margin-top:8px;color:#5A6B7A}.faq h2{font-size:19px;margin:28px auto 12px;max-width:860px;text-align:left}</style>
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-ranking/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ASF Ranking","url":"https://acarolmourad-commits.github.io/asf-ranking/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
+</script>
+<!-- ========== SEO Padrão Google (rede ASF) ========== -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="ASF — Associação de Surf Feminino">
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="Litoral Norte de São Paulo">
+<meta name="language" content="pt-BR">
+<meta name="theme-color" content="#ff4d8d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ASF — Associação de Surf Feminino">
+<meta property="og:title" content="ASF Ranking — Ranking gamificado da comunidade de surf feminino">
+<meta property="og:description" content="Ranking gamificado da comunidade ASF: ganhe XP nos apps da rede e acompanhe seu progresso e nível de surfista.">
+<meta property="og:url" content="https://acarolmourad-commits.github.io/asf-ranking/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ASF Ranking — Ranking gamificado da comunidade de surf feminino">
+<meta name="twitter:description" content="Ranking gamificado da comunidade ASF: ganhe XP nos apps da rede e acompanhe seu progresso e nível de surfista.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ASF Ranking — Ranking gamificado da comunidade de surf feminino","url":"https://acarolmourad-commits.github.io/asf-ranking/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ASF App","item":"https://acarolmourad-commits.github.io/asf-app/"},{"@type":"ListItem","position":2,"name":"ASF Ranking — Ranking gamificado da comunidade de surf feminino","item":"https://acarolmourad-commits.github.io/asf-ranking/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Preciso criar conta no Ranking ASF?","acceptedAnswer":{"@type":"Answer","text":"Não! O XP fica salvo no seu navegador (localStorage) e funciona em todos os apps ASF automaticamente, sem login nem coleta de dados pessoais."}},{"@type":"Question","name":"Meu XP some se eu trocar de dispositivo?","acceptedAnswer":{"@type":"Answer","text":"Sim — como os dados ficam no navegador, ao trocar de celular ou limpar os dados do site, o contador recomeça."}},{"@type":"Question","name":"O XP expira?","acceptedAnswer":{"@type":"Answer","text":"Não. Uma vez ganho, ele fica acumulado enquanto os dados do navegador forem mantidos."}},{"@type":"Question","name":"Posso perder nível no Ranking ASF?","acceptedAnswer":{"@type":"Answer","text":"Não — os níveis só sobem. Mesmo que você pare de usar por um tempo, seu XP permanece guardado."}},{"@type":"Question","name":"O ranking ASF é competitivo?","acceptedAnswer":{"@type":"Answer","text":"Por enquanto o progresso é individual — a ideia é celebrar sua própria evolução. Rankings entre a comunidade estão nos planos."}}]}
+</script>
+<!-- ========== Fim SEO ========== -->
+</head>
+<body>
+<header><h1>🏆 ASF Ranking</h1><p>Ranking gamificado da comunidade com XP integrado aos apps ASF</p></header>
+<nav><a href="https://acarolmourad-commits.github.io/asf-app/">🏄‍♀️ ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-praias/">Praias</a>
+<a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsao</a>
+<a href="https://acarolmourad-commits.github.io/asf-treino/">Treino</a>
+<a href="https://acarolmourad-commits.github.io/asf-eventos/">Eventos</a>
+<a href="https://acarolmourad-commits.github.io/asf-glossario/">Glossario</a>
+<a href="https://acarolmourad-commits.github.io/asf-seguranca/">Seguranca</a>
+<a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a>
+<a href="https://acarolmourad-commits.github.io/asf-equipamento/">Equipamento</a>
+<a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a>
+<a href="https://acarolmourad-commits.github.io/asf-nutricao/">Nutricao</a>
+<a href="https://acarolmourad-commits.github.io/asf-historia/">Historia</a>
+<a href="https://acarolmourad-commits.github.io/asf-viagens/">Viagens</a>
+<a href="https://acarolmourad-commits.github.io/asf-bemestar/">Bemestar</a>
+<a href="https://acarolmourad-commits.github.io/asf-diario/">Diario</a>
+<a href="https://acarolmourad-commits.github.io/asf-eco/">Eco</a>
+<a href="https://acarolmourad-commits.github.io/asf-kids/">Kids</a>
+<a href="https://acarolmourad-commits.github.io/asf-mental/">Mental</a>
+<a href="https://acarolmourad-commits.github.io/asf-respira/">Respira</a>
+<a href="https://acarolmourad-commits.github.io/asf-sos/">Sos</a>
+<a href="https://acarolmourad-commits.github.io/asf-volume/">Volume</a>
+<a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a><a href="https://acarolmourad-commits.github.io/asf-mapa/">🗺️ Mapa</a>
+<a href="https://acarolmourad-commits.github.io/asf-mare/">🌙 Maré</a>
+<a href="https://acarolmourad-commits.github.io/asf-goldenhour/">📸 Golden Hour</a>
+<a href="https://acarolmourad-commits.github.io/asf-patrocinio/">🤝 Patrocínio</a></nav>
+<main>
+<div class="card"><h2>⭐ Seu XP no Ecossistema ASF</h2>
+<h1 id="my" style="text-align:center;font-size:3rem;color:var(--roxo)">0</h1>
+<p style="text-align:center" id="lvl"></p>
+<div style="background:#f3e8ff;border-radius:12px;height:14px;overflow:hidden;margin:.8rem 0"><div id="bar" style="background:linear-gradient(90deg,var(--rosa),var(--roxo));height:100%;width:0%;transition:width .6s"></div></div>
+<p style="text-align:center;font-size:.85rem;color:#777" id="next"></p></div>
+
+<div class="card"><h2>❓ Como funciona o Ranking ASF</h2>
+<p>O Ranking ASF é a forma gamificada de acompanhar sua jornada no ecossistema da <b>Associação de Surf Feminino</b>. Pense nele como um <b>passaporte da surfista</b>: cada interação nos apps deixa um carimbo em forma de XP. Funciona em 4 passos:</p>
+<div style="background:#fdf3f8;border-radius:12px;padding:1rem;margin:.8rem 0">
+<p><b>Passo 1 · Explore os apps 🧭</b><br>O ecossistema ASF tem dezenas de satélites (Quiz, Diário, Yoga, Respira, Eco, Maré, Comunidade e mais). Cada um distribui <b>XP</b> (pontos de experiência) quando você interage: acertar uma pergunta do quiz, registrar uma sessão no diário, completar uma prática de yoga, consultar a maré, entre outras ações.</p>
+<p style="margin-top:.6rem"><b>Passo 2 · O XP acumula sozinho ⚙️</b><br>Os pontos ficam salvos no seu navegador (armazenamento local, sem cadastro nem login) e são <b>compartilhados entre todos os apps ASF</b>. Ganhou 5 XP no Quiz? Eles aparecem automaticamente no Yoga, no Diário e aqui no Ranking.</p>
+<p style="margin-top:.6rem"><b>Passo 3 · Suba de nível 🏄‍♀️</b><br>Ao acumular XP, você avança na escala de níveis inspirada na jornada real da surfista: de <b>🏖️ Beira-mar</b> (pé na areia) até <b>👑 Rainha do Pico</b> (referência da comunidade). Cada nível exige mais XP que o anterior — como no surf, a progressão pede constância.</p>
+<p style="margin-top:.6rem"><b>Passo 4 · Acompanhe aqui 📊</b><br>O painel no topo desta página mostra seu <b>XP total</b>, seu <b>nível atual</b>, a <b>barra de progresso</b> e quantos pontos faltam para o próximo nível.</p>
+</div></div>
+
+<div class="card"><h2>🧮 Como o XP é calculado</h2>
+<p>Cada app define o valor das suas ações. Como referência, as faixas mais comuns no ecossistema:</p>
+<table style="width:100%;border-collapse:collapse">
+<tr style="border-bottom:1px solid #eee;color:#888;font-size:.85rem"><td><b>Ação</b></td><td><b>XP típico</b></td></tr>
+<tr style="border-bottom:1px solid #eee"><td>Visitar um app satélite</td><td>2–5 XP</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>Acertar pergunta no Quiz</td><td>5–10 XP</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>Registrar sessão no Diário</td><td>10–20 XP</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>Completar prática de Yoga/Respira</td><td>10–15 XP</td></tr>
+<tr><td>Completar desafios e trilhas</td><td>20–50 XP</td></tr>
+</table>
+<p style="font-size:.8rem;color:#888;margin-top:.5rem">Valores aproximados — cada app mostra o XP exato no momento da ação.</p></div>
+
+<div class="card"><h2>💡 Dicas para evoluir mais rápido</h2>
+<ul style="padding-left:1.2rem">
+<li><b>Constância &gt; maratona:</b> visitar os apps todo dia rende mais do que uma sessão única.</li>
+<li><b>Varie os apps:</b> cada satélite tem ações próprias — explore além do seu favorito.</li>
+<li><b>Registre tudo no Diário:</b> é a ação que mais vale XP no dia a dia.</li>
+<li><b>Faça o Quiz do Dia:</b> rápido, divertido e educativo.</li>
+<li><b>Use o mesmo navegador/dispositivo:</b> seu XP vive lá — trocar de aparelho zera o contador.</li>
+</ul></div>
+
+<div class="card"><h2>🌊 Onde ganhar XP</h2>
+<table style="width:100%;border-collapse:collapse">
+<tr style="border-bottom:1px solid #eee"><td>🧠 <a href="https://acarolmourad-commits.github.io/asf-quiz/">Quiz</a></td><td>Acerte perguntas sobre surf e cultura do mar</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>📓 <a href="https://acarolmourad-commits.github.io/asf-diario/">Diário</a></td><td>Registre suas sessões e evolução</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>🧘 <a href="https://acarolmourad-commits.github.io/asf-yoga/">Yoga</a> e <a href="https://acarolmourad-commits.github.io/asf-respira/">Respira</a></td><td>Complete práticas de bem-estar</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>🌙 <a href="https://acarolmourad-commits.github.io/asf-mare/">Maré</a> e <a href="https://acarolmourad-commits.github.io/asf-previsao/">Previsão</a></td><td>Consulte as condições antes de entrar no mar</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>🌱 <a href="https://acarolmourad-commits.github.io/asf-eco/">Eco</a></td><td>Ações de conscientização ambiental</td></tr>
+<tr><td>💜 <a href="https://acarolmourad-commits.github.io/asf-comunidade/">Comunidade</a></td><td>Conecte-se com outras surfistas</td></tr>
+</table>
+<p style="font-size:.8rem;color:#888;margin-top:.5rem">Cada app define quantos XP cada ação vale — explore todos para subir mais rápido!</p></div>
+
+<div class="card"><h2>🎯 Níveis ASF</h2><table style="width:100%;border-collapse:collapse">
+<tr style="border-bottom:1px solid #eee"><td>🏖️ <b>Beira-mar</b></td><td>0 XP</td><td style="color:#888;font-size:.85rem">Começando a jornada, pé na areia</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>🌊 <b>Espuma</b></td><td>50 XP</td><td style="color:#888;font-size:.85rem">Primeiras ondas, aprendendo o mar</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>🏄‍♀️ <b>Dropando</b></td><td>150 XP</td><td style="color:#888;font-size:.85rem">Já pega onda com consistência</td></tr>
+<tr style="border-bottom:1px solid #eee"><td>⚡ <b>Manobrando</b></td><td>300 XP</td><td style="color:#888;font-size:.85rem">Técnica afiada e presença no pico</td></tr>
+<tr><td>👑 <b>Rainha do Pico</b></td><td>600 XP</td><td style="color:#888;font-size:.85rem">Referência da comunidade ASF</td></tr>
+</table></div>
+
+<div class="card"><h2>❔ Dúvidas frequentes</h2>
+<p><b>Preciso criar conta?</b> Não! O XP fica salvo no seu navegador e funciona em todos os apps ASF automaticamente.</p>
+<p><b>Meu XP some se eu trocar de dispositivo?</b> Sim — como os dados ficam no navegador, ao trocar de celular ou limpar os dados do site, o contador recomeça. Dica: evite limpar os dados do navegador se quiser manter seu progresso.</p>
+<p><b>O XP expira?</b> Não. Uma vez ganho, ele fica acumulado enquanto os dados do navegador forem mantidos.</p>
+<p><b>Posso perder nível?</b> Não — os níveis só sobem. Mesmo que você pare de usar por um tempo, seu XP permanece guardado.</p>
+<p><b>O ranking é competitivo?</b> Por enquanto o progresso é individual — a ideia é celebrar sua própria evolução. Rankings entre a comunidade estão nos planos! 🌊</p></div>
+
+<div class="card" style="text-align:center"><h2>🚀 Comece agora</h2>
+<p>Pronta para ganhar XP? Escolha um app e dê o primeiro passo:</p>
+<p style="margin-top:.8rem"><a href="https://acarolmourad-commits.github.io/asf-quiz/"><button>🧠 Quiz do Dia</button></a>
+<a href="https://acarolmourad-commits.github.io/asf-diario/"><button style="margin-left:.5rem">📓 Registrar sessão</button></a></p></div>
+
+<div class="card"><h2>🌐 Ecossistema ASF</h2><p>Este app faz parte da constelação ASF — Associação de Surf Feminino. Ganhe XP aqui e veja seu progresso no <a href="https://acarolmourad-commits.github.io/asf-ranking/">ASF Ranking</a>. App principal: <a href="https://acarolmourad-commits.github.io/asf-app/">ASF App</a>.</p></div>
+
+</main>
+<div class="xp">⭐ XP: <span id="xp">0</span></div>
+<footer>ASF — Associação de Surf Feminino · Feito com 🌊 e 💜 · <a href="https://acarolmourad-commits.github.io/asf-app/">asf-app</a></footer>
+<script>
+const XP=()=>parseInt(localStorage.getItem('asf_xp')||'0');
+function addXP(n){localStorage.setItem('asf_xp',XP()+n);document.getElementById('xp').textContent=XP();}
+document.getElementById('xp').textContent=XP();
+const x=XP();document.getElementById('my').textContent=x;
+const L=[[600,'👑 Rainha do Pico'],[300,'⚡ Manobrando'],[150,'🏄‍♀️ Dropando'],[50,'🌊 Espuma'],[0,'🏖️ Beira-mar']];
+const lvl=L.find(l=>x>=l[0]);document.getElementById('lvl').textContent='Nível atual: '+lvl[1];
+const idx=L.indexOf(lvl);
+if(idx>0){const nx=L[idx-1];const pct=Math.min(100,Math.round((x-lvl[0])/(nx[0]-lvl[0])*100));document.getElementById('bar').style.width=pct+'%';document.getElementById('next').textContent='Faltam '+(nx[0]-x)+' XP para '+nx[1];}else{document.getElementById('bar').style.width='100%';document.getElementById('next').textContent='Nível máximo alcançado! 👑';}
+</script>
+</body>
+</html>
