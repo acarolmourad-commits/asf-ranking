@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://acarolmourad-commits.github.io/asf-ranking/sitemap.xml
+Sitemap: https://ranking.asf.surf/sitemap.xml
